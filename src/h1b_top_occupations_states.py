@@ -93,7 +93,7 @@ def read_data(filename):
 	return data
 
 
-data=read_data('./input/'+sys.argv[1])
+data=read_data('./input/h1b_input.csv')
 top_10s=top_10([[item[0],item[2]] for item in data])		#using only status and state fields for top 10 states
 top_10o=top_10([item[:2] for item in data])			#using only status and occupation fields for top 10 occupations
 print_top10(top_10s,"s")
