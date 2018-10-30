@@ -5,9 +5,8 @@ import sys
 #		Same function used to calculate top 10 states as well as occupations (inputs modified to achieve this)
 #output: 	returns a sorted list of top 10 entries
 def top_10(data):
-	num_certified={}
-	certified=0
-	#counter for certified
+	num_certified={}	#dictionary to count how many certified in each category
+	certified=0		#counter for total number of certified
 	for item in data:
 		if item[0]=="CERTIFIED":
 			if item[1] in num_certified:
@@ -26,7 +25,6 @@ def top_10(data):
 #process:	creates the appropriate output file based on the type_out parameter. Creates the output string in semi-colon seperated format and stores it in the output file.
 #output:	None
 def print_top10(top_10,type_out):
-	#print(top_10)
 	if type_out=="s":							#if the type of output is states, create top_10_states.txt
 		string="TOP_STATES;NUMBER_CERTIFIED_APPLICATIONS;PERCENTAGE\n"
 		outfile="top_10_states.txt"
@@ -101,6 +99,4 @@ top_10o=top_10([item[:2] for item in data])			#using only status and occupation 
 print_top10(top_10s,"s")
 print_top10(top_10o,"o")
 print("Done Processing. Please check the output folder for the required files.")
-#top_10o=top_10_occupations(data)
-#print_occupations(top_10o)
 
